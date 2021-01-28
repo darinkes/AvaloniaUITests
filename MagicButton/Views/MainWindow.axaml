@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MagicButton.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="using:MagicButton.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MagicButton.Views.MainWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Padding="100"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MagicButton">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+      <local:MagicButton StrokeThickness="10" Width="200" Height="200" StrokeBrush="Red" Percentage="0.10" Padding="10"/>
+      <local:MagicButton Background="Yellow" StrokeThickness="10" Width="200" Height="200" StrokeBrush="Green" Percentage="0.10" Padding="10"/>
+    </StackPanel>
+</Window>
