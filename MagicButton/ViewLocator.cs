@@ -7,10 +7,11 @@ namespace MagicButton
 {
     public class ViewLocator : IDataTemplate
     {
-        public bool SupportsRecycling => false;
-
-        public IControl Build(object data)
+        public Control Build(object? data)
         {
+            if (data == null)
+                return new TextBlock {Text = "No data provided"};
+
             var name = data.GetType().FullName!.Replace("ViewModel", "View");
             var type = Type.GetType(name);
 
@@ -24,7 +25,7 @@ namespace MagicButton
             }
         }
 
-        public bool Match(object data)
+        public bool Match(object? data)
         {
             return data is ViewModelBase;
         }

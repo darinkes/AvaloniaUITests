@@ -13,8 +13,14 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
+    <Window.KeyBindings>
+        <KeyBinding Command="{Binding SwitchPercentageCommand}" Gesture="Ctrl+Shift+P"/>
+    </Window.KeyBindings>
+
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-      <local:MagicButton StrokeThickness="10" Width="200" Height="200" StrokeBrush="Red" Percentage="0.10" Padding="10"/>
-      <local:MagicButton Background="Yellow" StrokeThickness="10" Width="200" Height="200" StrokeBrush="Green" Percentage="0.10" Padding="10"/>
+      <local:MagicButton StrokeThickness="10" Width="200" Height="200" StrokeBrush="Red" Percentage="{Binding Percentage}" Padding="10"/>
+      <TextBlock Text="{Binding Percentage}"/>
+      <Slider Value="{Binding Percentage}" Minimum="0.0" Maximum="1.0" Ticks="0.1"/>
+      <!-- <local:MagicButton Background="Yellow" StrokeThickness="10" Width="200" Height="200" StrokeBrush="Green" Percentage="{Binding Percentage}" Padding="10"/> -->
     </StackPanel>
 </Window>
